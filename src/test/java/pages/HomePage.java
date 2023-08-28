@@ -1,7 +1,6 @@
 package pages;
 
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -9,7 +8,6 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomePage extends BasePage {
 
@@ -86,9 +84,6 @@ public class HomePage extends BasePage {
 
     @FindBy(xpath = "//*[@id='b2indexPage']/div[21]/div/div/div/div/div[2]/div/div[1]/div/div/ul[1]/li[3]/button")
     WebElement confirmSelectedLanguageButton;
-
-    @FindBy(css = "[data-qmab-component-id='27'] li")
-    List<WebElement> carouselItems;
 
     public void closeModal() throws Exception {
         click(closeButton, "Modal close button " + closeButton + " has been clicked");
