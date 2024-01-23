@@ -13,6 +13,11 @@ import pages.HomePage;
 
 public class FinalProjectBooking extends BaseTest {
 
+    HomePage homePage = new HomePage(driver);
+
+    DestinationPage destinationPage = new DestinationPage(driver);
+
+    BestOfferDestinationPage bestOfferDestinationPage = new BestOfferDestinationPage(driver);
     @BeforeMethod
     @Parameters({"browser", "env", "wait"})
     public void setup(String browser, String wait, String env) throws Exception {
@@ -34,7 +39,6 @@ public class FinalProjectBooking extends BaseTest {
 
     public void bookProperty() throws Exception {
 
-        HomePage homePage = new HomePage(driver);
         homePage.enterDestination("Kopaonik");
         homePage.clickDatePicker();
         homePage.selectStartDate();
@@ -51,7 +55,6 @@ public class FinalProjectBooking extends BaseTest {
 
     public void subscribe() throws Exception {
 
-        HomePage homePage = new HomePage(driver);
         homePage.scrollToSubscribeSection();
         homePage.enterEmailAddress("tester@testing.com");
         homePage.higlightNewsletterInputField();
@@ -65,11 +68,9 @@ public class FinalProjectBooking extends BaseTest {
 
     public void trendingDestinations() throws Exception {
 
-        HomePage homePage = new HomePage(driver);
         homePage.scrollToTrendingDestinationsSection();
         homePage.checkImagesNumber("5");
         homePage.selectTrendingDestination();
-        DestinationPage destinationPage = new DestinationPage(driver);
         destinationPage.selectStartDate();
         destinationPage.selectEndDate();
         destinationPage.clickSubmitButton();
@@ -84,7 +85,6 @@ public class FinalProjectBooking extends BaseTest {
 
     public void exploreBosnia() throws Exception {
 
-        HomePage homePage = new HomePage(driver);
         homePage.scrollToExploreBosniaSection();
         homePage.selectBosniaDestination();
         DestinationPage destinationPage = new DestinationPage(driver);
@@ -100,13 +100,11 @@ public class FinalProjectBooking extends BaseTest {
     @Severity(SeverityLevel.CRITICAL)
     public void bestOffers() throws Exception {
 
-        HomePage homePage = new HomePage(driver);
         homePage.selectDesiredLanguage();
         homePage.confirmSelectedLanguage();
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,200)");
         homePage.selectBestOfferDestination();
-        BestOfferDestinationPage bestOfferDestinationPage = new BestOfferDestinationPage(driver);
         bestOfferDestinationPage.scrollToSeasonalOfferSection();
         bestOfferDestinationPage.checkSeasonImagesNumber("12");
         bestOfferDestinationPage.selectSeasonalOfferDestination();
