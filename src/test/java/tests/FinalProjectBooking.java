@@ -18,6 +18,7 @@ public class FinalProjectBooking extends BaseTest {
     DestinationPage destinationPage = new DestinationPage(driver);
 
     BestOfferDestinationPage bestOfferDestinationPage = new BestOfferDestinationPage(driver);
+
     @BeforeMethod
     @Parameters({"browser", "env", "wait"})
     public void setup(String browser, String wait, String env) throws Exception {
